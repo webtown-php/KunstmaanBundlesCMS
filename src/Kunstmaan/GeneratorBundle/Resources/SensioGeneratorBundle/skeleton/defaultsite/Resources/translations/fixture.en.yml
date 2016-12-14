@@ -73,7 +73,7 @@ demo:
         choice:
             label: Subject
             error_message_required: Subject is required
-            choices: 'I want to make a website with the Kunstmaan bundles \n I'm testing the website \n I want to get a quote for a website built by Kunstmaan'
+            choices: "I want to make a website with the Kunstmaan bundles \n I'm testing the website \n I want to get a quote for a website built by Kunstmaan"
         message:
             label: Message
             error_message_required: Message is required
