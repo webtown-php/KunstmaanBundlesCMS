@@ -30,7 +30,7 @@ class DefaultSiteFixtures extends AbstractFixture implements OrderedFixtureInter
 	/**
 	 * Translation domain
 	 */
-	const TRANSLATION_DOMAIN = 'fixtures';
+	const TRANSLATION_DOMAIN = 'fixture';
 
     /**
      * Username that is used for creating pages
