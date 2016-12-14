@@ -61,6 +61,7 @@ class DefaultSiteGenerator extends KunstmaanGenerator
         $this->generateFormTypes($parameters);
         $this->generateTwigExtensions($parameters);
         $this->generateMenuAdaptors($parameters);
+        $this->generateTranslations($parameters);
         $this->generateFixtures($parameters);
         $this->generatePagepartConfigs($parameters);
         $this->generatePagetemplateConfigs($parameters);
@@ -217,6 +218,22 @@ class DefaultSiteGenerator extends KunstmaanGenerator
 
             $this->assistant->writeLine('Generating menu adaptors : <info>OK</info>');
         }
+    }
+
+    /**
+     * Generate the data fixtures classes.
+     *
+     * @param array $parameters The template parameters
+     */
+    public function generateTranslations(array $parameters)
+    {
+        $relPath = '/Resources/translations';
+        $sourceDir = $this->skeletonDir.$relPath;
+        $targetDir = $this->bundle->getPath().$relPath;
+
+        $this->copyFiles($sourceDir, $targetDir);
+
+        $this->assistant->writeLine('Generating translations : <info>OK</info>');
     }
 
     /**
