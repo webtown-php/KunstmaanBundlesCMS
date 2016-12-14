@@ -18,7 +18,9 @@ use {{ namespace }}\Entity\Bike;
 use {{ namespace }}\Entity\Pages\ContentPage;
 {% if demosite %}
 use {{ namespace }}\Entity\Pages\FormPage;
+{% endif %}
 use {{ namespace }}\Entity\Pages\HomePage;
+{% if demosite %}
 use {{ namespace }}\Entity\Pages\SearchPage;
 {% endif %}
 
