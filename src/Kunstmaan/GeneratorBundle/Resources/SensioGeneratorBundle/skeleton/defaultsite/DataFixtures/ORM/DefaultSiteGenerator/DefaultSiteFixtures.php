@@ -14,7 +14,9 @@ use Kunstmaan\PagePartBundle\Helper\Services\PagePartCreatorService;
 use Kunstmaan\TranslatorBundle\Entity\Translation;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+{% if demosite %}
 use {{ namespace }}\Entity\Bike;
+{% endif %}
 use {{ namespace }}\Entity\Pages\ContentPage;
 {% if demosite %}
 use {{ namespace }}\Entity\Pages\FormPage;
