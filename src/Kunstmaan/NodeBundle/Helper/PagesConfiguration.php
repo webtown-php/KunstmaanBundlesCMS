@@ -156,9 +156,4 @@ class PagesConfiguration
 
         return $result;
     }
-
-    protected function createConfiguration()
-    {
-
-    }
 }
