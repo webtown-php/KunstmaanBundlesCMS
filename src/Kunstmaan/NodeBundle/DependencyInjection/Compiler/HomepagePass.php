@@ -23,6 +23,5 @@ class HomepagePass implements CompilerPassInterface
 
         $definition = $container->findDefinition('kunstmaan_node.pages_configuration');
         $definition->addMethodCall('setDoctrine', [new Reference('doctrine')]);
-        $definition->addMethodCall('initConfiguration');
     }
 }
