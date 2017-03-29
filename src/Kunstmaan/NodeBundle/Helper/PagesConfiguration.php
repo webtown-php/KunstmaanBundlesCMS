@@ -23,6 +23,11 @@ class PagesConfiguration
      */
     private $doctrine;
 
+    /**
+     * @var bool
+     */
+    private $configurationIsInitialized = false;
+
     public function __construct($configuration)
     {
         $this->configuration = $configuration;
@@ -37,7 +42,7 @@ class PagesConfiguration
     /**
      * Collects all entities that implement HomePageInterface and loads them into configuration
      */
-    public function initConfiguration()
+    protected function initConfiguration()
     {
         $metas = $this->doctrine->getManager()->getMetadataFactory()->getAllMetadata();
         foreach ($metas as $meta) {
@@ -116,9 +121,18 @@ class PagesConfiguration
         });
     }
 
+    protected function getConfiguration()
+    {
+        if (!$this->configurationIsInitialized) {
+            $this->initConfiguration();
+        }
+
+        return $this->configuration;
+    }
+
     public function getHomepageTypes()
     {
-        $pageTypes = array_keys($this->configuration);
+        $pageTypes = array_keys($this->getConfiguration());
         $homePageTypes = array();
         foreach ($pageTypes as $pageType) {
             if ($this->isHomePage($pageType)) {
@@ -140,8 +154,10 @@ class PagesConfiguration
     {
         $refName = is_object($ref) ? ClassLookup::getClass($ref) : $ref;
 
-        if (isset($this->configuration[$refName][$name])) {
-            return $this->configuration[$refName][$name];
+        $configuration = $this->getConfiguration();
+
+        if (isset($configuration[$refName][$name])) {
+            return $configuration[$refName][$name];
         }
 
         if (false === is_callable($default)) {
