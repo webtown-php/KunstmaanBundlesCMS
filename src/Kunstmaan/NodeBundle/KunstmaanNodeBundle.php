@@ -2,6 +2,8 @@
 
 namespace Kunstmaan\NodeBundle;
 
+use Kunstmaan\NodeBundle\DependencyInjection\Compiler\HomepagePass;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
